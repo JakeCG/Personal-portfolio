@@ -78,6 +78,12 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
 
 
     </style>
@@ -96,7 +102,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="">Home</a>
+                    <a class="nav-link" href="http://127.0.0.1:8000">Home</a>
                     <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/blog/">Journal
                         entries</a>
                     <a class="nav-link" href="https://github.com/JakeCG" target="_blank">GitHub</a>
@@ -120,9 +126,11 @@
         {% for blog in blogs.all %}
         <a></a>
         <h3>{{ blog.title }}</h3><a/>
-        {{ blog.pub_date }}
+        {{ blog.pub_date_pretty }}
         <br/>
-        <img src="{{ blog.images.url }}"/>
+        <img class="center rounded img-fluid" src="{{ blog.images.url }}" width=200 height=200/>
+        <br/>
+        <p>{{ blog.summary }}</p>
         {% endfor %}
 
     </div>
